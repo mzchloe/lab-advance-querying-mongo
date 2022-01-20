@@ -50,11 +50,15 @@ Sort: {'ipo.valuation_amount': -1}
 
 ### 10. Retrieve the 10 companies with most employees, order by the `number of employees`
 
-<!-- Your Code Goes Here -->
+Sort: {number_of_employees: -1}
+Limit: 10
 
 ### 11. All the companies founded on the second semester of the year. Limit your search to 1000 companies.
 
-<!-- Your Code Goes Here -->
+Very unclear what "second semester" is defined by here. To my knowledge we do not use "semester" in business language, and "semester" is commonly known to be used in Academic Years - Google search result, and it also varies depending which country you study as it can be 2-4 or even more semesters defined by each academic university. Since this is not defined, I make the assumption that one year has 2 semester, and the 2nd semester starts in July, aka second half of the year:
+
+Filter: {founded_month: {$gt: 6}}
+Limit: 1000
 
 ### 12. All the companies founded before 2000 that have an acquisition amount of more than 10.000.000
 
