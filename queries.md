@@ -40,7 +40,8 @@ Filter: {category_code: null}
 
 ### 8. All the companies that have at least 100 employees but less than 1000. Retrieve only the `name` and `number of employees` fields.
 
-<!-- Your Code Goes Here -->
+Filter: {number_of_employees: {$gt: 100, $lt: 1000}}
+Project: {name: 1, number_of_employees: 1}
 
 ### 9. Order all the companies by their IPO price in a descending order.
 
