@@ -66,7 +66,9 @@ Filter: {founded_year: {$lt: 2000}, 'acquisition.price_amount': {$gt: 10000000}}
 
 ### 13. All the companies that have been acquired after 2010, order by the acquisition amount, and retrieve only their `name` and `acquisition` field.
 
-<!-- Your Code Goes Here -->
+Filter: {'acquisition.acquired_year': {$gt: 2010}}
+Project: {name: 1, acquisition: 1}
+Sort: {'acquisition.price_amount': -1}
 
 ### 14. Order the companies by their `founded year`, retrieving only their `name` and `founded year`.
 
