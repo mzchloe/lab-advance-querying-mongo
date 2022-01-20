@@ -22,7 +22,8 @@ Project: {name: 1, founded_year: 1}
 
 ### 4. All the companies that had a Valuation Amount of more than 100.000.000 and have been founded before 2010. Retrieve only the `name` and `ipo` fields.
 
-<!-- Cannot get the IPO -->
+Filter: {'ipo.valuation_amount': {$gt: 100000000}, founded_year: {$lt: 2010}}
+Project: {name: 1, ipo: 1}
 
 ### 5. All the companies that have less than 1000 employees and have been founded before 2005. Order them by the number of employees and limit the search to 10 companies.
 
