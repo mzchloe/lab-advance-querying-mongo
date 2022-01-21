@@ -5,7 +5,7 @@
 ### 1. All the companies whose name match 'Babelgum'. Retrieve only their `name` field.
 
 Filter: {name: 'Babelgum'}
-Project: {name: 1}
+Project: {name: 1, _id: 0}
 
 ### 2. All the companies that have more than 5000 employees. Limit the search to 20 companies and sort them by **number of employees**.
 
@@ -17,13 +17,13 @@ Limit: 20
 ### 3. All the companies founded between 2000 and 2005, both years included. Retrieve only the `name` and `founded_year` fields.
 
 Filter: {founded_year: {$gte: 2000, $lte: 2005}}
-Project: {name: 1, founded_year: 1}
+Project: {name: 1, founded_year: 1, _id: 0}
 
 
 ### 4. All the companies that had a Valuation Amount of more than 100.000.000 and have been founded before 2010. Retrieve only the `name` and `ipo` fields.
 
 Filter: {'ipo.valuation_amount': {$gt: 100000000}, founded_year: {$lt: 2010}}
-Project: {name: 1, ipo: 1}
+Project: {name: 1, ipo: 1, _id: 0}
 
 ### 5. All the companies that have less than 1000 employees and have been founded before 2005. Order them by the number of employees and limit the search to 10 companies.
 
@@ -41,8 +41,8 @@ Filter: {category_code: null}
 
 ### 8. All the companies that have at least 100 employees but less than 1000. Retrieve only the `name` and `number of employees` fields.
 
-Filter: {number_of_employees: {$gt: 100, $lt: 1000}}
-Project: {name: 1, number_of_employees: 1}
+Filter: {number_of_employees: {$gte: 100, $lt: 1000}}
+Project: {name: 1, number_of_employees: 1, _id: 0}
 
 ### 9. Order all the companies by their IPO price in a descending order.
 
@@ -57,7 +57,7 @@ Limit: 10
 
 Very unclear what "second semester" is defined by here. To my knowledge we do not use "semester" in business language, and "semester" is commonly known to be used in Academic Years - Google search result, and it also varies depending which country you study as it can be 2-4 or even more semesters defined by each academic university. Since this is not defined, I make the assumption that one year has 2 semester, and the 2nd semester starts in July, aka second half of the year:
 
-Filter: {founded_month: {$gt: 6}}
+Filter: {founded_month: {$gte: 7}}
 Limit: 1000
 
 ### 12. All the companies founded before 2000 that have an acquisition amount of more than 10.000.000
@@ -67,13 +67,13 @@ Filter: {founded_year: {$lt: 2000}, 'acquisition.price_amount': {$gt: 10000000}}
 ### 13. All the companies that have been acquired after 2010, order by the acquisition amount, and retrieve only their `name` and `acquisition` field.
 
 Filter: {'acquisition.acquired_year': {$gt: 2010}}
-Project: {name: 1, acquisition: 1}
-Sort: {'acquisition.price_amount': -1}
+Project: {name: 1, acquisition: 1, _id: 0}
+Sort: {'acquisition.price_amount': 1}
 
 ### 14. Order the companies by their `founded year`, retrieving only their `name` and `founded year`.
 
-Project: {name: 1, founded_year: 1}
-Sort: {founded_year: -1}
+Project: {name: 1, founded_year: 1, _id: 0}
+Sort: {founded_year: 1}
 
 ### 15. All the companies that have been founded on the first seven days of the month, including the seventh. Sort them by their `acquisition price` in a descending order. Limit the search to 10 documents.
 
@@ -95,7 +95,7 @@ Filter: {'acquisition.price_amount': {$gt: 10000000}, 'acquisition.price_currenc
 Again, unclear request using the word "trimester", more commonly used for pregnancy in EU. My answer is based on the Merriam-Webster definition, first three months of the year:
 
 Filter: {'acquisition.acquired_month': {$lte: 3}}
-Project: {name: 1, acquisition: 1}
+Project: {name: 1, acquisition: 1, _id: 0}
 Limit: 10
 
 
