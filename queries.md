@@ -33,7 +33,7 @@ Limit: 10
 
 ### 6. All the companies that don't include the `partners` field.
 
-<!-- Your Code Goes Here -->
+Filter: {partners:{$exists: false}}
 
 ### 7. All the companies that have a null type of value on the `category_code` field.
 
@@ -102,4 +102,5 @@ Limit: 10
 
 ### 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.
 
-<!-- Your Code Goes Here -->
+Filter: {founded_year: {$gte: 2000, $lte: 2010}, 'acquisition.acquired_year': {$gte: 2011}}
+
